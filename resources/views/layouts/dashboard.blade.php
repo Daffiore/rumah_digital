@@ -53,7 +53,7 @@
 
         <!-- Bagian Bawah: Log Out & Social Media -->
         <div class="space-y-4 bg-[#2b2e3a] p-4 border-gray-700 border-t">
-            <form action="/auth/logout" method="POST">
+            <form action="/logout" method="POST">
                 @csrf
                 <button type="submit" class="flex items-center gap-3 hover:bg-red-500/10 px-3 py-2 rounded-xl w-full font-bold text-red-400 text-sm text-left transition-colors cursor-pointer">
                     <i class="fa-right-from-bracket w-4 text-center fa-solid"></i> Log Out

@@ -28,12 +28,12 @@
                     </div>
                 @endif
 
-                <form action="/auth/login" method="POST" class="space-y-5 md:space-y-6">
+                <form action="/logincik" method="POST" class="space-y-5 md:space-y-6">
                     @csrf
                     <!-- Input Email -->
                     <div class="relative pb-2 border-gray-400/60 focus-within:border-[#0284c7] border-b-2 transition-all duration-300">
                         <label for="email" class="block mb-1.5 font-bold text-gray-700 text-xs uppercase tracking-wider">Email</label>
-                        <input id="email" type="email" name="email" placeholder="TojiGanteng@stis.ac.id" required autocomplete="email" 
+                        <input id="email" type="text" name="email" placeholder="TojiGanteng@stis.ac.id" required autocomplete="email" 
                             class="bg-transparent p-0 border-none focus:outline-none focus:ring-0 w-full font-medium text-white placeholder:text-white/40 md:text-sm text-base">
                     </div>
 
@@ -53,7 +53,7 @@
 
                 <!-- Navigasi Bawah -->
                 <div class="flex flex-col gap-2 mt-8 pt-4 border-gray-400/30 border-t font-semibold text-[#1e3a8a] text-xs">
-                    <a href="#" class="inline-block py-1 w-max hover:text-[#0284c7] text-left transition-colors">Create Account</a>[cite: 1]
+                    <a href="/signup" class="inline-block py-1 w-max hover:text-[#0284c7] text-left transition-colors">Create Account</a>[cite: 1]
                     <a href="#" class="inline-block py-1 w-max hover:text-[#0284c7] text-left transition-colors">Forget Password</a>[cite: 1]
                 </div>
             </div>
