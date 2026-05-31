@@ -27,7 +27,10 @@ class LoginController
     if (auth()->attempt(['email' => $incomingfields['email'], 'password' => $incomingfields['password']])) {
         $request->session()->regenerate();
         $role = auth()->user()->role;
-        if ($role == 'admin' || $role == 'superadmin') {
+        if (auth()->user()->divisi != 'Umum'){
+            return redirect('dashboard');
+        }
+        else if ($role == 'admin' || $role == 'superadmin') {
             return view('layouts.dashboard');
         } 
         else if ($role == 'user' || $role == 'umum') {
