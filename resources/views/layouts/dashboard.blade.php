@@ -28,9 +28,9 @@
                 <div class="pt-2">
                     <button class="group flex justify-between items-center hover:bg-gray-700/50 px-3 py-2 rounded-xl w-full font-semibold hover:text-white text-sm transition-colors">
                         <span class="flex items-center gap-3">
-                            <i class="w-4 text-center fa-solid fa-graduation-cap"></i> Divisi Akademik
+                            <i class="w-4 text-center fa-solid fa-graduation-cap"></i> Divisi <span class="text-[#0284c7]" >{{ auth()->user()->divisi }}</span>
                         </span>
-                        <i class="text-xs fa-solid fa-chevron-down"></i>
+                        <i class="text-xs fa-solid fa-chevron-down"></i>    
                     </button>
                     <div class="space-y-1 mt-1 ml-4 pl-3 border-gray-600 border-l-2">
                         <a href="/timeline" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
@@ -39,8 +39,8 @@
                         <a href="#" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
                             Contact SuperAdmin
                         </a>
-                        <a href="#" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
-                            Buat Pengumuman
+                        <a href="/announcement" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
+                            Announcements
                         </a>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
@@ -24,4 +25,11 @@ Route::post('timeline/savetimelines', [TimelineController::class, 'savetimeline'
 Route::get('timeline/edittimeline/{id}',[TimelineController::class, 'edittimelineview']);
 Route::put('timeline/updatetimeline/{id}', [TimelineController::class, 'updatetimeline']);
 Route::delete('timeline/deletetimeline/{id}', [TimelineController::class, 'deletetimeline']);
+
+Route::get('/announcement', [AnnouncementController::class, 'showannouncement']);
+Route::get('/announcement/addannouncement', [AnnouncementController::class, 'addannouncement']);
+Route::post('/announcement/saveannouncement', [AnnouncementController::class, 'saveannouncement']);
+Route::get('/announcement/editannouncement/{id}', [AnnouncementController::class, 'showeditannouncement']);
+Route::put('/announcement/updateannouncement/{id}', [AnnouncementController::class, 'updateannouncement']);
+Route::delete('/announcement/deleteannouncement/{id}', [AnnouncementController::class, 'deleteannouncement']);
 });
