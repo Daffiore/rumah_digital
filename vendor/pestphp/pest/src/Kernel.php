@@ -41,25 +41,11 @@ final class Kernel
      */
     private const array BOOTSTRAPPERS = [
         Bootstrappers\BootOverrides::class,
-        Bootstrappers\BootPhpUnitConfiguration::class,
-        Plugins\Tia\Bootstrapper::class,
         Bootstrappers\BootSubscribers::class,
         Bootstrappers\BootFiles::class,
         Bootstrappers\BootView::class,
         Bootstrappers\BootKernelDump::class,
         Bootstrappers\BootExcludeList::class,
-    ];
-
-    /**
-     * The Kernel restarters — resolved and invoked from `bin/pest`
-     * before any other Pest class is touched, so the list is exposed
-     * on the Kernel rather than driven from `bin/pest` directly.
-     *
-     * @var array<int, class-string<Contracts\Restarter>>
-     */
-    public const array RESTARTERS = [
-        Restarters\XdebugRestarter::class,
-        Restarters\PcovRestarter::class,
     ];
 
     /**
@@ -163,7 +149,7 @@ final class Kernel
         $this->terminate();
 
         if (is_array($error = error_get_last())) {
-            if (! in_array($error['type'], [E_ERROR, E_CORE_ERROR], true)) {
+            if (! in_array($error['type'], [E_ERROR, E_COMPILE_ERROR, E_CORE_ERROR], true)) {
                 return;
             }
 

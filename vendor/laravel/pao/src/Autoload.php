@@ -15,17 +15,17 @@ if (! is_array($argv) || $argv === []) {
     return;
 }
 
-if (isset($_SERVER['PAO_DISABLE'])) {
+if (filter_var($_SERVER['PAO_DISABLE'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
     return;
 }
 
 $agent = AgentDetector::detect();
 
-if (! $agent->isAgent) {
+if (! $agent->isAgent && ! filter_var($_SERVER['PAO_FORCE'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
     return;
 }
 
-if (array_intersect($argv, ['--version', '--help', '-h', 'worker'])) {
+if (array_intersect($argv, ['--version', '-V', '--help', '-h', 'worker'])) {
     return;
 }
 
@@ -53,11 +53,14 @@ register_shutdown_function(function (): void {
             fn (string $line): bool => $line !== ''
                 && ! preg_match('/^[.st!]+$/', $line)
                 && ! preg_match('/^(Tests:|Duration:|Parallel:|Time:|Generating code coverage)\s/', $line)
+                && ! preg_match('/^(INFO\s+)?No tests found\.?$/i', $line)
                 && ! str_ends_with($line, 'by Sebastian Bergmann and contributors.'),
         ));
 
         if ($lines !== []) {
-            $result['raw'] = $lines;
+            $existing = is_array($result['raw'] ?? null) ? array_values($result['raw']) : [];
+
+            $result['raw'] = [...$existing, ...$lines];
         }
     }
 

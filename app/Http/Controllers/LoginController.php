@@ -47,8 +47,9 @@ class LoginController
     }
 
     public function home(){
-        if (!session()->has('user')) {
-        return redirect('/auth');}
+        //if (!session()->has('user')) {
+        //return redirect('/auth');}
+        //return view('welcome');
         return view('welcome');
     }
     public function signup(){

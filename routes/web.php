@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PSDM_AkademikController;
 use App\Http\Controllers\TimelineController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +16,6 @@ Route::get('/',[LoginController::class, 'home']);
 Route::get('/signup',[LoginController::class, 'signup']);
 Route::post('/register',[LoginController::class, 'register']);
 
-Route::middleware('auth')->group(function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
 Route::get('/timeline', [TimelineController::class, 'showtimeline']);
@@ -32,4 +31,9 @@ Route::post('/announcement/saveannouncement', [AnnouncementController::class, 's
 Route::get('/announcement/editannouncement/{id}', [AnnouncementController::class, 'showeditannouncement']);
 Route::put('/announcement/updateannouncement/{id}', [AnnouncementController::class, 'updateannouncement']);
 Route::delete('/announcement/deleteannouncement/{id}', [AnnouncementController::class, 'deleteannouncement']);
-});
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+if(app()->environment() == 'local') {
+    Auth::loginUsingId(1);
+}

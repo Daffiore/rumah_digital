@@ -16,14 +16,14 @@
             </div>
             
             <nav class="space-y-2">
-                <a href="/dashboard/beranda" class="flex items-center gap-3 hover:bg-gray-700/50 px-3 py-2 rounded-xl font-semibold hover:text-white text-sm transition-colors">
+                <a href="/" class="flex items-center gap-3 hover:bg-gray-700/50 px-3 py-2 rounded-xl font-semibold hover:text-white text-sm transition-colors">
                     <i class="w-4 text-center fa-solid fa-house"></i> Beranda
                 </a>
                 <a href="#" class="flex items-center gap-3 hover:bg-gray-700/50 px-3 py-2 rounded-xl font-semibold hover:text-white text-sm transition-colors">
                     <i class="w-4 text-center fa-solid fa-clock-rotate-left"></i> Timeline Aktivitas
                 </a>
                 
-                
+                    
 
                 <div class="pt-2">
                     <button class="group flex justify-between items-center hover:bg-gray-700/50 px-3 py-2 rounded-xl w-full font-semibold hover:text-white text-sm transition-colors">
@@ -36,7 +36,7 @@
                         <a href="/timeline" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
                             Timeline Divisi
                         </a>
-                        <a href="#" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
+                        <a href="" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
                             Contact SuperAdmin
                         </a>
                         <a href="/announcement" class="block hover:bg-gray-700/50 px-3 py-1.5 rounded-lg font-medium hover:text-white text-xs transition-colors">
@@ -74,6 +74,9 @@
     <main class="flex flex-col flex-1 bg-white h-full overflow-y-auto">
         @yield('content')
     </main>
+ 
+
+    
 
 </body>
 </html>
