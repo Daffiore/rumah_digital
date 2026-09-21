@@ -4,7 +4,6 @@
 
 @section('content')
     @include('partials.hero')
-    @include('partials.about')
     @include('partials.timeline')
     @include('partials.contact')
 @endsection

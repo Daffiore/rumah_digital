@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Validation\Rule;
+use App\Models\Timeline;
 use auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class LoginController
 {
@@ -50,7 +51,8 @@ class LoginController
         //if (!session()->has('user')) {
         //return redirect('/auth');}
         //return view('welcome');
-        return view('welcome');
+         $timelines = Timeline::orderBy('start_date','asc')->get();
+        return view('welcome',['timelines'=>$timelines]);
     }
     public function signup(){
         return view('signup');
